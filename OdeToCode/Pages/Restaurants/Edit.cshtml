@@ -1,0 +1,34 @@
+﻿@page "{Id:int}"
+@model MyApp.Namespace.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit @Model.Restaurant.Name</h2>
+<form method="POST" class="d-inline">
+    <input type="hidden" asp-for="Restaurant.Id">
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Restaurant.Name">
+            Name:
+        </label>
+        <input class="form-control" type="text" asp-for="Restaurant.Name">
+        <span class="text-danger" asp-validation-for="Restaurant.Name"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Restaurant.Location">
+            Location:
+        </label>
+        <input class="form-control" type="text" asp-for="Restaurant.Location">
+        <span class="text-danger" asp-validation-for="Restaurant.Location"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Restaurant.Cuisine">
+            Cuisine:
+        </label>
+        <select class="form-control" asp-for="Restaurant.Cuisine" asp-items="Model.Cuisines">
+        </select>
+        <span class="text-danger" asp-validation-for="Restaurant.Cuisine"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+<a asp-page="./List" class="btn btn-success">All Restaurants</a>

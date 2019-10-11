@@ -1,0 +1,42 @@
+﻿@page "{Id:int}"
+@model MyApp.Namespace.DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+@if (Model.Message != null) {
+<div class="row float-right">
+    <div class="col-12 alert alert-info">
+        <label class="text-success">@Model.Message</label>
+    </div>
+</div>
+}
+
+<h2>@Model.Restaurant.Name</h2>
+
+<div class="row">
+    <div class="col-6">
+        Name:
+    </div>
+    <div class="col-6">
+        @Model.Restaurant.Name
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        Location:
+    </div>
+    <div class="col-6">
+        @Model.Restaurant.Location
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        Cuisine:
+    </div>
+    <div class="col-6">
+        @Model.Restaurant.Cuisine
+    </div>
+</div>
+
+<a asp-page="./List" class="btn btn-success">All Restaurants</a>
